@@ -1,0 +1,40 @@
+// Variables
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+
+// Base styles
+body {
+  margin: 0;
+  font-family: $font-stack;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Example component styles
+.app {
+  text-align: center;
+  
+  &-header {
+    @include flex-center;
+    flex-direction: column;
+    color: white;
+  }
+  
+  &-link {
+    color: $primary-color;
+    
+    &:hover {
+      color: darken($primary-color, 10%);
+    }
+  }
+}

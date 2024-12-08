@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&display=swap');
+
+:root {
+  --bg-primary: #f4f4f8;
+  --bg-card: #ffffff;
+  --text-primary: #2c3e50;
+  --text-secondary: #7f8c8d;
+  --border-color: #e0e4e8;
+  --syntax-keyword: #007bff;
+  --syntax-string: #28a745;
+  --syntax-prop: #dc3545;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.app-container {
+  background-color: var(--bg-primary);
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  
+  h1 {
+    font-size: 2.25rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.5px;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background-color: var(--border-color);
+      opacity: 0.7;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  overflow: visible;
+  
+  * {
+    overflow: visible !important;
+  }
+}
+
+.syntax-card {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  overflow: visible;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-header {
+    background-color: var(--border-color);
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+
+    h3 {
+      margin: 0;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    position: relative;
+    overflow: visible;
+  }
+
+  .syntax-preview {
+    pre {
+      background-color: #f4f4f4;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      
+      .keyword {
+        color: var(--syntax-keyword);
+        font-weight: 600;
+      }
+      
+      .string {
+        color: var(--syntax-string);
+      }
+      
+      .prop {
+        color: var(--syntax-prop);
+      }
+    }
+  }
+
+  .picker-demo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f9f9fc;
+    border-radius: 8px;
+    position: relative;
+    z-index: 10;
+  }
+}
+
+// Mobile and Responsive Adjustments
+@media screen and (max-width: 768px) {
+  .app-container {
+    padding: 1rem;
+  }
+
+  .app-header {
+    margin-bottom: 2rem;
+
+    h1 {
+      font-size: 1.8rem;
+      
+      &::after {
+        width: 40px;
+        bottom: -8px;
+      }
+    }
+
+    p {
+      font-size: 0.9rem;
+      max-width: 100%;
+      padding: 0 1rem;
+    }
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .syntax-card {
+    border-radius: 8px;
+    
+    .card-header {
+      padding: 0.75rem;
+
+      h3 {
+        font-size: 1rem;
+      }
+    }
+
+    .card-content {
+      padding: 1rem;
+
+      .syntax-preview {
+        pre {
+          font-size: 0.7rem;
+          padding: 0.75rem;
+          margin-bottom: 0.75rem;
+          overflow-x: auto;
+        }
+      }
+
+      .picker-demo {
+        padding: 0.75rem;
+      }
+    }
+  }
+}
+
+// Touch and Small Screen Enhancements
+@media (max-width: 480px) {
+  .app-container {
+    padding: 0.5rem;
+  }
+
+  .cards-grid {
+    gap: 0.75rem;
+  }
+
+  .syntax-card {
+    .card-content {
+      padding: 0.75rem;
+
+      .syntax-preview {
+        pre {
+          font-size: 0.6rem;
+          padding: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+// Improve touch targets
+@media (pointer: coarse) {
+  .syntax-card {
+    .picker-demo {
+      min-height: 50px;
+      
+      input {
+        min-height: 44px;
+        padding: 0.75rem;
+      }
+    }
+  }
+}
