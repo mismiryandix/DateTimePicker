@@ -12,6 +12,7 @@ This project showcases a versatile **DateTimePicker** React component with multi
 4. [Component Props](#component-props)
 5. [Usage Examples](#usage-examples)
 6. [Customization](#customization)
+7. [Live Demo](#live-demo)
 
 ---
 
@@ -130,3 +131,11 @@ import { CustomIcon } from './icons';
 ```
 
 Additionally, styles can be customized by overriding the default CSS classes in the `styles/App.scss`.
+
+---
+
+## Live Demo
+
+### Online Demo
+You can view the live demo of the DateTimePicker component at: 
+**https://mismiryandix.github.io/DateTimePicker/**
