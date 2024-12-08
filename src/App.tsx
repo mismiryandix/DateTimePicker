@@ -1,11 +1,52 @@
 import React, { useRef, useState } from 'react';
 import './styles/App.scss';
 import DateTimePicker from './components/DateTimePicker';
+import { 
+  Calendar, 
+  Clock, 
+  CalendarCheck, 
+  CalendarEvent, 
+  CalendarRange, 
+  ClockFill 
+} from 'react-bootstrap-icons';
 
 function App() {
   const dateTimePickerRef = useRef(null);
   type PickerType = 'date' | 'time' | 'datetime' | 'year';
-  const [selectedDates, setSelectedDates] = useState<(Date | null)[]>([null, null, null, null]);
+  const [selectedDates, setSelectedDates] = useState<(Date | null)[]>([null, null, null, null, null]);
+
+  const customIcons = [
+    { 
+      icon: Calendar, 
+      label: 'Basic Calendar Icon',
+      description: 'Standard calendar icon for date selection'
+    },
+    { 
+      icon: Clock, 
+      label: 'Outline Clock Icon',
+      description: 'Outline clock icon for time selection'
+    },
+    { 
+      icon: CalendarCheck, 
+      label: 'Calendar Check Icon',
+      description: 'Calendar with checkmark, good for confirmed dates'
+    },
+    { 
+      icon: CalendarEvent, 
+      label: 'Calendar Event Icon',
+      description: 'Calendar with event marker'
+    },
+    { 
+      icon: CalendarRange, 
+      label: 'Calendar Range Icon',
+      description: 'Icon suggesting date range selection'
+    },
+    { 
+      icon: ClockFill, 
+      label: 'Filled Clock Icon',
+      description: 'Solid/filled clock icon for time selection'
+    }
+  ];
 
   const handleDateChange = (index: number) => (date: Date | null) => {
     const newDates = [...selectedDates];
@@ -43,10 +84,24 @@ function App() {
       type: 'date', 
       format: 'yyyy-MM-DD', 
       placeholder: 'Select Date', 
+      label: 'Date Picker with Custom Icon',
+      icon: customIcons[2].icon,
+      syntax: `<span class="keyword">&#60;DateTimePicker</span> 
+  <span class="keyword">type</span>=<span class="string">"date"</span>
+  <span class="keyword">showIcon</span>=<span class="string">"true"</span>
+  <span class="keyword">icon</span>={<span class="prop">CalendarCheck</span>}
+<span class="keyword">/&#62;</span>`,
+      isError: false,
+    },
+    { 
+      showIcon: true,
+      type: 'date', 
+      format: 'yyyy-MM-DD', 
+      placeholder: 'Select Date', 
       label: 'Basic Date Picker with Error Message',
       syntax: `<span class="keyword">&#60;DateTimePicker</span> 
   <span class="keyword">type</span>=<span class="string">"date"</span>
-  <span class="keyword">showIcon</span>=<span class="string">"false"</span>
+  <span class="keyword">showIcon</span>=<span class="string">"true"</span>
   <span class="keyword">isError</span>=<span class="prop">true</span>
   <span class="keyword">errorMessage</span>=<span class="string">"Select a valid date"</span>
 <span class="keyword">/&#62;</span>`,
@@ -133,6 +188,7 @@ function App() {
                   onChange={handleDateChange(index)}
                   minDate={config.minDate}
                   maxDate={config.maxDate}
+                  icon={config.icon}
                   isError={config.isError}
                   errorMessage={config.errorMessage}
                 />

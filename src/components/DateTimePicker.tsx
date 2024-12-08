@@ -81,19 +81,16 @@ const DateTimePicker = forwardRef((
     
     switch (type) {
       case 'time':
-        // For time-only, we use today's date with the selected time
         newDate = new Date();
         const [hours, minutes] = value.split(':');
         newDate.setHours(parseInt(hours, 10), parseInt(minutes, 10), 0, 0);
         break;
       
       case 'date':
-        // For date-only, we set the time to midnight
         newDate = new Date(value);
         break;
       
       case 'year':
-        // For year-only, set to January 1st of selected year
         newDate = new Date(parseInt(value, 10), 0, 1);
         newDate.setHours(0, 0, 0, 0);
         break;
@@ -113,7 +110,6 @@ const DateTimePicker = forwardRef((
   const formatDateTimeForInput = (date: Date | null): string => {
     if (!date) return '';
 
-    // Default formats for different types
     const defaultFormats = {
       time: 'HH:mm',
       date: 'YYYY-MM-DD',
@@ -122,16 +118,14 @@ const DateTimePicker = forwardRef((
     };
 
     try {
-      // Use provided format or fallback to default
       const formatToUse = format || defaultFormats[type as keyof typeof defaultFormats] || defaultFormats.datetime;
 
-      // Support localization if needed
       const formattedDate = moment(date).locale(navigator.language).format(formatToUse);
       
       return formattedDate.toString();
     } catch (error) {
       console.error('Date formatting error:', error);
-      return date.toLocaleString(); // Fallback to browser's default localization
+      return date.toLocaleString(); 
     }
   };
 
