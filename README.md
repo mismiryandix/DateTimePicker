@@ -52,8 +52,8 @@ The project demonstrates how to implement and customize this component using Rea
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-repo/datetime-picker.git
-   cd datetime-picker
+   git clone git@github.com:mismiryandix/DateTimePicker.git
+   cd DateTimePicker
    ```
 2. Install dependencies:
    ```bash
@@ -130,43 +130,3 @@ import { CustomIcon } from './icons';
 ```
 
 Additionally, styles can be customized by overriding the default CSS classes in the `styles/App.scss`.
-
----
-
-## Live Demo Cards
-
-The app includes a grid of cards showcasing different configurations of the **DateTimePicker**. Each card demonstrates:
-
-1. A **preview** of the component.
-2. A **code snippet** showing how to implement the configuration.
-3. The **selected value** after user interaction.
-
-### Demo Configurations
-
-1. **Basic Date Picker**  
-   - **Props**: `type="date"`, `showIcon=true`.
-   - Displays a standard date picker with a calendar icon.
-
-2. **Date Picker Without Icon**  
-   - **Props**: `type="date"`, `showIcon=false`.  
-   - Simple date picker without an icon.
-
-3. **Date Picker with Error Handling**  
-   - **Props**: `type="date"`, `isError=true`, `errorMessage="Select a valid date"`.  
-   - Highlights input errors.
-
-4. **Date Picker with Range (2024)**  
-   - **Props**: `type="date"`, `minDate=2024-01-01`, `maxDate=2024-12-31`.  
-   - Restricts selection to dates in 2024.
-
-5. **Time Picker**  
-   - **Props**: `type="time"`, `format="HH:mm"`.  
-   - Allows selection of time only.
-
-6. **Date and Time Picker**  
-   - **Props**: `type="datetime"`, `format="yyyy-MM-DD HH:mm"`.  
-   - Enables selection of both date and time.
-
-7. **Year Picker**  
-   - **Props**: `type="year"`, `format="YYYY"`.  
-   - Simplifies selection of a specific year.
