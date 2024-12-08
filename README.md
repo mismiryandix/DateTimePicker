@@ -17,6 +17,8 @@ This project showcases a versatile **DateTimePicker** React component with multi
 
 ## Overview
 
+![DateTimePicker UI](./screenshots/datetimepicker-preview.png)
+
 The **DateTimePicker** component provides an easy-to-use interface for selecting dates, times, or years, with options for error handling, range restrictions, and format customization. It is designed to support various use cases, such as:
 
 - Simple date pickers
