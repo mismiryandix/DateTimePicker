@@ -1,46 +1,172 @@
-# DateTimePicker React Component
+# DateTimePicker Component
 
-A flexible and customizable DateTimePicker component for React applications.
+This project showcases a versatile **DateTimePicker** React component with multiple configurations for date, time, and year selection. It includes live previews of various implementations, enabling developers to understand and integrate the component into their projects seamlessly.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+1. [Overview](#overview)
+2. [Features](#features)
+3. [Getting Started](#getting-started)
+4. [Component Props](#component-props)
+5. [Usage Examples](#usage-examples)
+6. [Customization](#customization)
+7. [Live Demo Cards](#live-demo-cards)
+8. [Contributing](#contributing)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Overview
 
-### `npm test`
+The **DateTimePicker** component provides an easy-to-use interface for selecting dates, times, or years, with options for error handling, range restrictions, and format customization. It is designed to support various use cases, such as:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Simple date pickers
+- Time pickers
+- Combined date and time pickers
+- Year selectors
 
-### `npm run build`
+The project demonstrates how to implement and customize this component using React.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Multiple Picker Types**: Supports `date`, `time`, `datetime`, and `year` selection.
+- **Customizable Format**: Flexible date/time formats via `moment.js`.
+- **Range Validation**: Restrict selections using `minDate` and `maxDate`.
+- **Icons**: Built-in or custom icons for better UI.
+- **Error Handling**: Display error messages for invalid inputs.
+- **Clear Button**: Reset selected values easily.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Getting Started
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Prerequisites
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- **Node.js** and **npm** installed on your machine.
+- Familiarity with **React**.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Installation
 
-## Learn More
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/your-repo/datetime-picker.git
+   cd datetime-picker
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm start
+   ```
+   Access the app at `http://localhost:3000`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Component Props
+
+| Prop Name      | Type                      | Default           | Description                                                                                      |
+|----------------|---------------------------|-------------------|--------------------------------------------------------------------------------------------------|
+| `type`         | `'date' | 'time' | 'datetime' | 'year'` | `'datetime'`     | Defines the picker type (date, time, datetime, or year).                                         |
+| `format`       | `string`                  | `'yyyy-MM-dd'`    | Format of the displayed value (e.g., `HH:mm`, `yyyy-MM-dd HH:mm`).                              |
+| `placeholder`  | `string`                  | `'Select date and time'` | Placeholder text for the input field.                                                           |
+| `disabled`     | `boolean`                | `false`           | Disables the picker.                                                                             |
+| `defaultValue` | `Date`                    | `null`            | Sets the initial date value.                                                                    |
+| `showIcon`     | `boolean`                | `false`           | Toggles visibility of the picker icon.                                                          |
+| `icon`         | `React.ComponentType`     | `null`            | Custom icon component.                                                                           |
+| `minDate`      | `Date`                    | `null`            | Minimum selectable date.                                                                        |
+| `maxDate`      | `Date`                    | `null`            | Maximum selectable date.                                                                        |
+| `isError`      | `boolean`                | `false`           | Displays error message when set to `true`.                                                      |
+| `errorMessage` | `string`                  | `''`              | Error message text.                                                                              |
+| `onChange`     | `(date: Date | null) => void` | `undefined`      | Callback triggered when the selected value changes.                                             |
+
+---
+
+## Usage Examples
+
+### Basic Date Picker
+
+```jsx
+<DateTimePicker type="date" showIcon format="yyyy-MM-DD" />
+```
+
+### Time Picker
+
+```jsx
+<DateTimePicker type="time" format="HH:mm" placeholder="Select Time" />
+```
+
+### DateTime Picker with Range
+
+```jsx
+<DateTimePicker 
+  type="datetime" 
+  format="yyyy-MM-DD HH:mm" 
+  minDate={new Date(2024, 0, 1)} 
+  maxDate={new Date(2024, 11, 31)} 
+/>
+```
+
+### Year Picker
+
+```jsx
+<DateTimePicker type="year" format="YYYY" placeholder="Select Year" />
+```
+
+---
+
+## Customization
+
+The component supports custom icons by passing an icon component through the `icon` prop. For example:
+
+```jsx
+import { CustomIcon } from './icons';
+
+<DateTimePicker type="date" icon={CustomIcon} />
+```
+
+Additionally, styles can be customized by overriding the default CSS classes in the `styles/App.scss`.
+
+---
+
+## Live Demo Cards
+
+The app includes a grid of cards showcasing different configurations of the **DateTimePicker**. Each card demonstrates:
+
+1. A **preview** of the component.
+2. A **code snippet** showing how to implement the configuration.
+3. The **selected value** after user interaction.
+
+### Demo Configurations
+
+1. **Basic Date Picker**  
+   - **Props**: `type="date"`, `showIcon=true`.
+   - Displays a standard date picker with a calendar icon.
+
+2. **Date Picker Without Icon**  
+   - **Props**: `type="date"`, `showIcon=false`.  
+   - Simple date picker without an icon.
+
+3. **Date Picker with Error Handling**  
+   - **Props**: `type="date"`, `isError=true`, `errorMessage="Select a valid date"`.  
+   - Highlights input errors.
+
+4. **Date Picker with Range (2024)**  
+   - **Props**: `type="date"`, `minDate=2024-01-01`, `maxDate=2024-12-31`.  
+   - Restricts selection to dates in 2024.
+
+5. **Time Picker**  
+   - **Props**: `type="time"`, `format="HH:mm"`.  
+   - Allows selection of time only.
+
+6. **Date and Time Picker**  
+   - **Props**: `type="datetime"`, `format="yyyy-MM-DD HH:mm"`.  
+   - Enables selection of both date and time.
+
+7. **Year Picker**  
+   - **Props**: `type="year"`, `format="YYYY"`.  
+   - Simplifies selection of a specific year.
