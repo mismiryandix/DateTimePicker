@@ -1,6 +1,6 @@
 # DateTimePicker Component
 
-This project showcases a versatile **DateTimePicker** React component with multiple configurations for date, time, and year selection. It includes live previews of various implementations, enabling developers to understand and integrate the component into their projects seamlessly.
+This project showcases a versatile **DateTimePicker** React component with multiple configurations for date, time, and year selection.
 
 ---
 
@@ -12,8 +12,6 @@ This project showcases a versatile **DateTimePicker** React component with multi
 4. [Component Props](#component-props)
 5. [Usage Examples](#usage-examples)
 6. [Customization](#customization)
-7. [Live Demo Cards](#live-demo-cards)
-8. [Contributing](#contributing)
 
 ---
 
@@ -82,7 +80,7 @@ The project demonstrates how to implement and customize this component using Rea
 | `maxDate`      | `Date`                    | `null`            | Maximum selectable date.                                                                        |
 | `isError`      | `boolean`                | `false`           | Displays error message when set to `true`.                                                      |
 | `errorMessage` | `string`                  | `''`              | Error message text.                                                                              |
-| `onChange`     | `(date: Date | null) => void` | `undefined`      | Callback triggered when the selected value changes.                                             |
+| `onChange`     | `(date: Date or null) => void` | `undefined`      | Callback triggered when the selected value changes.                                             |
 
 ---
 
