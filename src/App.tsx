@@ -113,7 +113,7 @@ function App() {
       type: 'date', 
       format: 'yyyy-MM-DD', 
       placeholder: 'Select Date', 
-      label: 'Date Picker with Range (2024)',
+      label: 'Date Picker with Min-Max Range (2024)',
       minDate: new Date(2024, 0, 1),
       maxDate: new Date(2024, 11, 31),
       syntax: `<span class="keyword">&#60;DateTimePicker</span> 
