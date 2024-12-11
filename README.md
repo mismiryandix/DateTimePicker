@@ -99,19 +99,19 @@ You can view the live demo of the DateTimePicker component at:
 ### Basic Date Picker
 
 ```jsx
-<DateTimePicker type="date" showIcon format="yyyy-MM-DD" />
+<DatePicker type="date" showIcon format="yyyy-MM-DD" />
 ```
 
 ### Time Picker
 
 ```jsx
-<DateTimePicker type="time" format="HH:mm" placeholder="Select Time" />
+<DatePicker type="time" format="HH:mm" placeholder="Select Time" />
 ```
 
 ### DateTime Picker with Range
 
 ```jsx
-<DateTimePicker 
+<DatePicker 
   type="datetime" 
   format="yyyy-MM-DD HH:mm" 
   minDate={new Date(2024, 0, 1)} 
@@ -122,7 +122,7 @@ You can view the live demo of the DateTimePicker component at:
 ### Year Picker
 
 ```jsx
-<DateTimePicker type="year" format="YYYY" placeholder="Select Year" />
+<DatePicker type="year" format="YYYY" placeholder="Select Year" />
 ```
 
 ---
@@ -134,7 +134,7 @@ The component supports custom icons by passing an icon component through the `ic
 ```jsx
 import { CustomIcon } from './icons';
 
-<DateTimePicker type="date" icon={CustomIcon} />
+<DatePicker type="date" icon={CustomIcon} />
 ```
 
 Additionally, styles can be customized by overriding the default CSS classes in the `styles/App.scss`.
