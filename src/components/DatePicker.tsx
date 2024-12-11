@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './DatePicker.scss';
 import { format } from 'date-fns';
 import { 
   Calendar3,
@@ -262,7 +261,6 @@ const DatePicker: React.FC<DatePickerProps> = ({
   };
 
   const updateDisplayedDate = (date: Date | null) => {
-    debugger
     setSelectedDate(date);
     if (date && isDateInRange(date)) {
       setDisplayedDate(date);
@@ -325,7 +323,6 @@ const DatePicker: React.FC<DatePickerProps> = ({
               </div>
 
               <button onClick={() => {
-                debugger
                 const newDate = new Date(selectedDate || new Date());
                 if(type === 'year') {
                   newDate.setFullYear(newDate.getFullYear() + 1);

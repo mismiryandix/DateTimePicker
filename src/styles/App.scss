@@ -139,7 +139,6 @@
   }
 }
 
-// Mobile and Responsive Adjustments
 @media screen and (max-width: 768px) {
   .app-container {
     padding: 1rem;
@@ -199,7 +198,6 @@
   }
 }
 
-// Touch and Small Screen Enhancements
 @media (max-width: 480px) {
   .app-container {
     padding: 0.5rem;
@@ -223,7 +221,6 @@
   }
 }
 
-// Improve touch targets
 @media (pointer: coarse) {
   .syntax-card {
     .picker-demo {
