@@ -1,6 +1,5 @@
-import React, { useRef, useState } from 'react';
+import { useState } from 'react';
 import './styles/App.scss';
-import DateTimePicker from './components/DateTimePicker';
 import { 
   Calendar, 
   Clock, 
@@ -9,42 +8,30 @@ import {
   CalendarRange, 
   ClockFill 
 } from 'react-bootstrap-icons';
+import DatePicker from './components/DatePicker';
 
 function App() {
-  const dateTimePickerRef = useRef(null);
   type PickerType = 'date' | 'time' | 'datetime' | 'year';
-  const [selectedDates, setSelectedDates] = useState<(Date | null)[]>([null, null, null, null, null]);
+  const [selectedDates, setSelectedDates] = useState<(Date | null)[]>([null, null, null, null, new Date(), null, null, null]);
 
   const customIcons = [
     { 
-      icon: Calendar, 
-      label: 'Basic Calendar Icon',
-      description: 'Standard calendar icon for date selection'
+      icon: Calendar,
     },
     { 
       icon: Clock, 
-      label: 'Outline Clock Icon',
-      description: 'Outline clock icon for time selection'
     },
     { 
       icon: CalendarCheck, 
-      label: 'Calendar Check Icon',
-      description: 'Calendar with checkmark, good for confirmed dates'
     },
     { 
       icon: CalendarEvent, 
-      label: 'Calendar Event Icon',
-      description: 'Calendar with event marker'
     },
     { 
       icon: CalendarRange, 
-      label: 'Calendar Range Icon',
-      description: 'Icon suggesting date range selection'
     },
     { 
       icon: ClockFill, 
-      label: 'Filled Clock Icon',
-      description: 'Solid/filled clock icon for time selection'
     }
   ];
 
@@ -58,11 +45,11 @@ function App() {
     { 
       showIcon: true,
       type: 'date', 
-      format: 'yyyy-MM-DD', 
-      placeholder: 'Select Date', 
+      format: 'dd-MM-yyyy', 
       label: 'Basic Date Picker',
-      syntax: `<span class="keyword">&#60;DateTimePicker</span> 
+      syntax: `<span class="keyword">&#60;DatePicker</span> 
   <span class="keyword">type</span>=<span class="string">"date"</span>
+  <span class="keyword">format</span>=<span class="string">"dd-MM-yyyy"</span>
   <span class="keyword">showIcon</span>=<span class="string">"true"</span>
 <span class="keyword">/&#62;</span>`,
       isError: false
@@ -70,11 +57,11 @@ function App() {
     { 
       showIcon: false,
       type: 'date', 
-      format: 'yyyy-MM-DD', 
-      placeholder: 'Select Date', 
+      format: 'dd-MM-yyyy', 
       label: 'Basic Date Picker without Icon',
-      syntax: `<span class="keyword">&#60;DateTimePicker</span> 
+      syntax: `<span class="keyword">&#60;DatePicker</span> 
   <span class="keyword">type</span>=<span class="string">"date"</span>
+  <span class="keyword">format</span>=<span class="string">"dd-MM-yyyy"</span>
   <span class="keyword">showIcon</span>=<span class="string">"false"</span>
 <span class="keyword">/&#62;</span>`,
       isError: false,
@@ -82,12 +69,12 @@ function App() {
     { 
       showIcon: true,
       type: 'date', 
-      format: 'yyyy-MM-DD', 
-      placeholder: 'Select Date', 
+      format: 'dd-MM-yyyy', 
       label: 'Date Picker with Custom Icon',
       icon: customIcons[2].icon,
-      syntax: `<span class="keyword">&#60;DateTimePicker</span> 
+      syntax: `<span class="keyword">&#60;DatePicker</span> 
   <span class="keyword">type</span>=<span class="string">"date"</span>
+  <span class="keyword">format</span>=<span class="string">"dd-MM-yyyy"</span>
   <span class="keyword">showIcon</span>=<span class="string">"true"</span>
   <span class="keyword">icon</span>={<span class="prop">CalendarCheck</span>}
 <span class="keyword">/&#62;</span>`,
@@ -96,28 +83,28 @@ function App() {
     { 
       showIcon: true,
       type: 'date', 
-      format: 'yyyy-MM-DD', 
-      placeholder: 'Select Date', 
+      format: 'dd-MM-yyyy', 
       label: 'Basic Date Picker with Error Message',
-      syntax: `<span class="keyword">&#60;DateTimePicker</span> 
+      syntax: `<span class="keyword">&#60;DatePicker</span> 
   <span class="keyword">type</span>=<span class="string">"date"</span>
+  <span class="keyword">format</span>=<span class="string">"dd-MM-yyyy"</span>
   <span class="keyword">showIcon</span>=<span class="string">"true"</span>
   <span class="keyword">isError</span>=<span class="prop">true</span>
   <span class="keyword">errorMessage</span>=<span class="string">"Select a valid date"</span>
 <span class="keyword">/&#62;</span>`,
       isError: true,
-      errorMessage: 'Please select a valid date'
+      errorMessage: 'Select a valid date'
     },
     { 
       showIcon: true,
-      type: 'date', 
-      format: 'yyyy-MM-DD', 
-      placeholder: 'Select Date', 
+      type: 'date',
+      format: 'dd-MM-yyyy', 
       label: 'Date Picker with Min-Max Range (2024)',
       minDate: new Date(2024, 0, 1),
       maxDate: new Date(2024, 11, 31),
-      syntax: `<span class="keyword">&#60;DateTimePicker</span> 
+      syntax: `<span class="keyword">&#60;DatePicker</span> 
   <span class="keyword">type</span>=<span class="string">"date"</span>
+  <span class="keyword">format</span>=<span class="string">"dd-MM-yyyy"</span>
   <span class="keyword">showIcon</span>=<span class="string">"true"</span>
   <span class="keyword">minDate</span>={<span class="prop">new Date</span>(2024, 0, 1)}
   <span class="keyword">maxDate</span>={<span class="prop">new Date</span>(2024, 11, 31)}
@@ -128,10 +115,10 @@ function App() {
       showIcon: true,
       type: 'time', 
       format: 'HH:mm', 
-      placeholder: 'Select Time', 
       label: 'Time Picker',
-      syntax: `<span class="keyword">&#60;DateTimePicker</span> 
+      syntax: `<span class="keyword">&#60;DatePicker</span> 
   <span class="keyword">type</span>=<span class="string">"time"</span>
+  <span class="keyword">format</span>=<span class="string">"HH:mm"</span>
   <span class="keyword">showIcon</span>=<span class="string">"true"</span>
 <span class="keyword">/&#62;</span>`,
       isError: false
@@ -139,11 +126,11 @@ function App() {
     { 
       showIcon: true,
       type: 'datetime', 
-      format: 'yyyy-MM-DD HH:mm', 
-      placeholder: 'Select Date and Time', 
+      format: 'dd-MM-yyyy HH:mm', 
       label: 'Date and Time Picker',
-      syntax: `<span class="keyword">&#60;DateTimePicker</span> 
+      syntax: `<span class="keyword">&#60;DatePicker</span> 
   <span class="keyword">type</span>=<span class="string">"datetime"</span>
+  <span class="keyword">format</span>=<span class="string">"dd-MM-yyyy HH:mm"</span>
   <span class="keyword">showIcon</span>=<span class="string">"true"</span>
 <span class="keyword">/&#62;</span>`,
       isError: false
@@ -151,11 +138,11 @@ function App() {
     { 
       showIcon: true,
       type: 'year', 
-      format: 'YYYY', 
-      placeholder: 'Select Year', 
+      format: 'yyyy', 
       label: 'Year Picker',
-      syntax: `<span class="keyword">&#60;DateTimePicker</span> 
+      syntax: `<span class="keyword">&#60;DatePicker</span> 
   <span class="keyword">type</span>=<span class="string">"year"</span>
+  <span class="keyword">format</span>=<span class="string">"yyyy"</span>
   <span class="keyword">showIcon</span>=<span class="string">"true"</span>
 <span class="keyword">/&#62;</span>`,
       isError: false
@@ -165,8 +152,8 @@ function App() {
   return (
     <div className="app-container">
       <div className="app-header">
-        <h1>DateTimePicker</h1>
-        <p>Date and time picking configurations</p>
+        <h1>DatePicker</h1>
+        <p>Date and time configurations</p>
       </div>
       <div className="cards-grid">
         {datePickerConfigs.map((config, index) => (
@@ -179,12 +166,11 @@ function App() {
                 <pre dangerouslySetInnerHTML={{ __html: config.syntax }} />
               </div>
               <div className="picker-demo">
-                <DateTimePicker
-                  showIcon={config.showIcon}
-                  ref={dateTimePickerRef}
+                <DatePicker
+                  value={selectedDates[index]}
+                  isShowIcon={config.showIcon}
                   type={config.type as PickerType}
-                  format={config.format}
-                  placeholder={config.placeholder}
+                  dateFormat={config.format}
                   onChange={handleDateChange(index)}
                   minDate={config.minDate}
                   maxDate={config.maxDate}

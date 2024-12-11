@@ -77,10 +77,8 @@
   box-shadow: var(--card-shadow);
   overflow: visible;
   position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
-    transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   }
 
@@ -138,7 +136,6 @@
     background-color: #f9f9fc;
     border-radius: 8px;
     position: relative;
-    z-index: 10;
   }
 }
 
