@@ -9,10 +9,10 @@ This project showcases a versatile **DateTimePicker** React component with multi
 1. [Overview](#overview)
 2. [Features](#features)
 3. [Getting Started](#getting-started)
-4. [Component Props](#component-props)
-5. [Usage Examples](#usage-examples)
-6. [Customization](#customization)
-7. [Live Demo](#live-demo)
+4. [Live Demo](#live-demo)
+5. [Component Props](#component-props)
+6. [Usage Examples](#usage-examples)
+7. [Customization](#customization)
 
 ---
 
@@ -68,16 +68,23 @@ The project demonstrates how to implement and customize this component using Rea
 
 ---
 
+## Live Demo
+
+### Online Demo
+You can view the live demo of the DateTimePicker component at: 
+**https://mismiryandix.github.io/DateTimePicker/**
+
+---
+
 ## Component Props
 
 | Prop Name      | Type                      | Default           | Description                                                                                      |
 |----------------|---------------------------|-------------------|--------------------------------------------------------------------------------------------------|
-| `type`         | `'date' | 'time' | 'datetime' | 'year'` | `'datetime'`     | Defines the picker type (date, time, datetime, or year).                                         |
-| `format`       | `string`                  | `'yyyy-MM-dd'`    | Format of the displayed value (e.g., `HH:mm`, `yyyy-MM-dd HH:mm`).                              |
-| `placeholder`  | `string`                  | `'Select date and time'` | Placeholder text for the input field.                                                           |
-| `disabled`     | `boolean`                | `false`           | Disables the picker.                                                                             |
+| `type`         | `'date' | 'time' | 'datetime' | 'year'` | `'date'`     | Defines the picker type (date, time, datetime, or year).                                         |
+| `dateFormat`   | `string`                  | `'dd-MM-yyyy'`    | Format of the displayed value (e.g., `HH:mm`, `yyyy-MM-dd HH:mm`).                              |
+| `placeholder`  | `string`                  | `'Select date'` | Placeholder text for the input field.                                                           |
 | `defaultValue` | `Date`                    | `null`            | Sets the initial date value.                                                                    |
-| `showIcon`     | `boolean`                | `false`           | Toggles visibility of the picker icon.                                                          |
+| `isShowIcon`     | `boolean`                | `false`           | Toggles visibility of the picker icon.                                                          |
 | `icon`         | `React.ComponentType`     | `null`            | Custom icon component.                                                                           |
 | `minDate`      | `Date`                    | `null`            | Minimum selectable date.                                                                        |
 | `maxDate`      | `Date`                    | `null`            | Maximum selectable date.                                                                        |
@@ -133,9 +140,3 @@ import { CustomIcon } from './icons';
 Additionally, styles can be customized by overriding the default CSS classes in the `styles/App.scss`.
 
 ---
-
-## Live Demo
-
-### Online Demo
-You can view the live demo of the DateTimePicker component at: 
-**https://mismiryandix.github.io/DateTimePicker/**
